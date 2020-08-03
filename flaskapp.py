@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, make_response
 from datetime import date
+from babel.dates import format_date
 from schedule_generator import shift_day, year_dates, week_len, SweHolidays, helgdagar
 from pay_calculator import pay, schedule
 import pdfkit
-import locale
 
 holidays_se = SweHolidays(include_sundays=False)
 
@@ -32,6 +32,7 @@ def generate():
                            datum=dates,
                            shift_day=shift_day,
                            strftime=date.strftime,
+                           format_date=format_date,
                            len=len,
                            int=int,
                            week_len=week_len,
@@ -53,6 +54,7 @@ def generatepdf():
                                datum=dates,
                                shift_day=shift_day,
                                strftime=date.strftime,
+                               format_date=format_date,
                                len=len,
                                int=int,
                                week_len=week_len,
@@ -72,9 +74,9 @@ def generatepdf():
         'margin-right': '0mm',
         }
     css = 'static/pdf.css'
-    config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')
+    #config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')
 
-    pdf = pdfkit.from_string(rendered, False, options=options, css=css, configuration=config)
+    pdf = pdfkit.from_string(rendered, False, options=options, css=css)
 
     response = make_response(pdf)
     response.headers['Content-Type'] = 'application/pdf'
@@ -103,7 +105,4 @@ def calculate_pay():
 
 
 if __name__ == '__main__':
-    # Set locale for correct display of weekdays
-    locale.setlocale(locale.LC_ALL, 'sv_SE')
-
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')

@@ -10,7 +10,7 @@
             {% for month in row %}
             <td class="month" style="vertical-align: top;">
                 <table>
-                    <th class="month" colspan="9">{{ month[1][0].strftime('%B').title() }}</th>
+                    <th class="month" colspan="9">{{ format_date(month[1][0], "MMMM", locale='sv_SE').title() }}</th>
                     <tr>
                         <td rowspan="2" colspan="2">
                             Vecka
@@ -42,7 +42,7 @@
                             
                             <td class="border {% if day.isoweekday() == 1 or day.day == 1 %}monday{% endif %}">{% if day in holidays_se %}{{ helgdagar.get(holidays_se[day]) }}{% endif %}</td>
                             <td class="datum {% if day.isoweekday() == 1 or day.day == 1 %}monday{% endif %}">{{ day.strftime('%d') }}</td>
-                            <td class="{% if day.isoweekday() == 1 or day.day == 1 %}monday{% endif %}">{{ day.strftime('%a') }}</td>
+                            <td class="{% if day.isoweekday() == 1 or day.day == 1 %}monday{% endif %}">{{ format_date(day, "E", locale='sv_SE') }}</td>
                             <td class="{% if day.isoweekday() == 1 or day.day == 1 %}monday{% endif %}">{{ shift_day(day, 1) }}</td>
                             <td class="{% if day.isoweekday() == 1 or day.day == 1 %}monday{% endif %}">{{ shift_day(day, 2) }}</td>
                             <td class="{% if day.isoweekday() == 1 or day.day == 1 %}monday{% endif %}">{{ shift_day(day, 3) }}</td>
