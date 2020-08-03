@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<div>
+    <p><b>Grundlön: </b>{{ salary }}</p>
+    <p>Skift {{ shift }}</p>
+    <p>{{ total_pay }}</p>
+</div>
+
+{% endblock %}

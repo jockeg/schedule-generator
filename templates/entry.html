@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<form method='POST' action='/schema'>
+<p>Ange vilket år du vill generera schema för:</p>
+    <p>År:<input name='year' type='TEXT' width='200' required><br>
+    Grundlön (inkl. tillägg):<input type="text" name="salary" width="150"></p><br>
+<input type="radio" name="shift" value="1" checked>Skift 1
+<input type="radio" name="shift" value="2">Skift 2
+<input type="radio" name="shift" value="3">Skift 3
+<input type="radio" name="shift" value="4">Skift 4
+<input type="radio" name="shift" value="5">Skift 5
+<p><input value='Visa schema' type='SUBMIT'>
+    <input value='Skapa pdf' type='submit' formaction="/pdf">
+   <input value='Räkna ut lön' type='submit' formaction='/loneutrakning'></p>
+</form>
+
+{% endblock %}
