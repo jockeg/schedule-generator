@@ -72,8 +72,9 @@ def generatepdf():
         'margin-right': '0mm',
         }
     css = 'static/pdf.css'
+    config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')
 
-    pdf = pdfkit.from_string(rendered, False, options=options, css=css)
+    pdf = pdfkit.from_string(rendered, False, options=options, css=css, configuration=config)
 
     response = make_response(pdf)
     response.headers['Content-Type'] = 'application/pdf'
