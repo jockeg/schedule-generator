@@ -1,6 +1,6 @@
 flask
 datetime
-locale
 calendar
 holidays
 dateutil
+pdfkit
