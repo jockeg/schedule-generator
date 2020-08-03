@@ -64,7 +64,7 @@ def generatepdf():
                                freegrp2=freegrp2,)
 
     options = {
-        'enable-local-file-access': None,  #Used because Error: Failed to load about:blank, with network status code 301 and http status code 0 - Protocol "about" is unknown
+        'enable-local-file-access': None,
         'orientation': 'Landscape',
         'margin-bottom': '0mm',
         'margin-top': '5mm',
