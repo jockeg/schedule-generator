@@ -3,7 +3,7 @@ body {
     font-size:        medium;
     margin-top:       0%;
     margin-bottom:    0%;
-    margin-left:      0%;
+    margin-left:      5mm;
     margin-right:     0%;
     border:           0px solid gray;
     padding:          0px 0px 0px 0px;
@@ -23,7 +23,7 @@ body {
   div {
     display:          block;
     margin:           auto;
-    width:            330mm;
+    width:            335mm;
     height:           210mm;
   }
 
