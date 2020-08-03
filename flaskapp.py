@@ -5,9 +5,6 @@ from pay_calculator import pay, schedule
 import pdfkit
 import locale
 
-# Set locale for correct display of weekdays
-# locale.setlocale(locale.LC_ALL, 'sv_SE')
-
 holidays_se = SweHolidays(include_sundays=False)
 
 vacationgrp1 = [25, 26, 27, 28]
@@ -105,4 +102,7 @@ def calculate_pay():
 
 
 if __name__ == '__main__':
+    # Set locale for correct display of weekdays
+    locale.setlocale(locale.LC_ALL, 'sv_SE')
+
     app.run(debug=False, host='0.0.0.0')
