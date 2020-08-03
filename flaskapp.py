@@ -6,7 +6,7 @@ import pdfkit
 import locale
 
 # Set locale for correct display of weekdays
-locale.setlocale(locale.LC_ALL, 'sv_SE')
+# locale.setlocale(locale.LC_ALL, 'sv_SE')
 
 holidays_se = SweHolidays(include_sundays=False)
 
