@@ -1,5 +1,5 @@
 flask
 datetime
 holidays
-dateutil
+python-dateutil
 pdfkit
