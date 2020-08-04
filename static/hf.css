@@ -25,6 +25,12 @@ div {
   width:            auto;
 }
 
+.bgborder {
+  background-color: #e96363;
+  border:           1px solid black;
+  padding:          5px;
+}
+
 .page-break {
   display:          inline-block;
   page-break-after: always;
