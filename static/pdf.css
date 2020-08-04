@@ -38,8 +38,10 @@ body {
   
   table {
   margin:             auto;
+  margin-bottom:      -1px;
+  margin-left:        -1px;
   caption-side:       bottom;
-  border:             1px solid #909090;
+  border:             0px solid #909090;
   color:              #2a2a2a;
   border-collapse:    collapse;
   }
@@ -62,15 +64,23 @@ body {
   height:             5.5mm;
   }
   
-  .border {
+  .holiday {
   min-width:          6mm;
   color:            rgb(168, 0, 0);
   }
-
-  .month {
+  
+  .border-bottom {
   border-bottom:      1px solid #909090;
   }
-  
+
+  .border-top {
+  border-top:         1px solid #909090;
+  }
+    
+  .border {
+  border:             1px solid #909090;
+  }
+    
   .week {
   vertical-align:     middle;
   border-left:        1px solid #909090;

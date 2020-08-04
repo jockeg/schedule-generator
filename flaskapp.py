@@ -68,10 +68,10 @@ def generatepdf():
     options = {
         'enable-local-file-access': None,
         'orientation': 'Landscape',
-        'margin-bottom': '0mm',
+        'margin-bottom': '5mm',
         'margin-top': '5mm',
-        'margin-left': '0mm',
-        'margin-right': '0mm',
+        'margin-left': '5mm',
+        'margin-right': '5mm',
         }
     css = 'static/pdf.css'
     config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')

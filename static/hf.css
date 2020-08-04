@@ -6,7 +6,6 @@ body {
   margin-left:      0%;
   margin-right:     0%;
   border:           0px solid gray;
-  padding:          0px 0px 0px 0px;
   text-align:       center;
 }
 
@@ -21,13 +20,13 @@ h2 {
 }
 
 div {
-  display:          block;
+  display:          inline-block;
   margin:           auto;
-  width:            360mm;
+  width:            auto;
 }
 
 .page-break {
-  display:          block;
+  display:          inline-block;
   page-break-after: always;
 }
 
@@ -35,13 +34,12 @@ div {
 /*** Tables ***/
 
 table {
-margin-left:        0px;
-margin-right:       0px;
+margin:             auto;
+margin-bottom:      -1px;
+margin-right:       -1px;
 caption-side:       bottom;
-font-size:          0.97em;
-border:             1px solid #909090;
+border:             0px solid #909090;
 color:              #2a2a2a;
-padding:            5px 5px 2px;
 border-collapse:    collapse;
 }
 
@@ -50,37 +48,45 @@ padding:            0px;
 text-align:         center;
 vertical-align:     center;
 border:             noborder;
-font-size:          85%;
+font-size:          75%;
 color:              #454545;
 border-collapse:    collapse;
 }
 
 th {
-min-width:          7mm;
+min-width:          6mm;
 }
 
 tr {
-height:             6.5mm;
+height:             6mm;
 }
 
-.border {
-min-width:          24px;
+.holiday {
+min-width:          6mm;
 color:            rgb(168, 0, 0);
 }
 
-.month {
+.border-bottom {
 border-bottom:      1px solid #909090;
+}
+
+.border-top {
+border-top:         1px solid #909090;
+}
+
+.border {
+border:             1px solid #909090;
 }
 
 .week {
 vertical-align:     middle;
 border-left:        1px solid #909090;
 border-top:         1px solid #909090;
-min-width:          24px;
+min-width:          6mm;
 padding-top:        1px;
 }
 
-.datum {
+.border-right {
 border-right:       1px solid #909090;
 }
 
