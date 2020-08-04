@@ -24,6 +24,7 @@ body {
     margin-top:       0mm;
     margin-bottom:    5mm;
     margin-right:     5mm;
+    margin-left:      5mm;
     width:            auto;
   }
 
@@ -58,7 +59,7 @@ body {
   }
 
   tr {
-  height:             6mm;
+  height:             5.5mm;
   }
   
   .border {
