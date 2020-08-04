@@ -21,7 +21,9 @@ body {
   
   div {
     display:          inline-block;
-    margin:           5mm;
+    margin-top:       0mm;
+    margin-bottom:    5mm;
+    margin-right:     5mm;
     width:            auto;
   }
 
