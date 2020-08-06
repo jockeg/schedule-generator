@@ -1,6 +1,11 @@
-{% extends 'base.html' %}
-
-{% block body %}
+<!doctype html>
+<html lang="sv">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+        <title>{{ the_title }}</title>
+        <link rel="stylesheet" href="static/hf.css" />
+    </head>
+    <body>
 
     {% for row in datum %}
     <div class="page-break">
@@ -88,4 +93,5 @@
     
     {% endfor %}
 
-{% endblock %}
+    </body>
+</html>

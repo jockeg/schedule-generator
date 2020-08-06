@@ -19,7 +19,7 @@ app = Flask(__name__)
 @app.route('/')
 def entry_page():
     return render_template('entry.html',
-                           the_title='Webapp')
+                           the_title='Hem')
 
 
 @app.route('/schema', methods=['POST'])
