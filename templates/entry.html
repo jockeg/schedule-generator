@@ -2,18 +2,22 @@
 
 {% block body %}
 
-<div class="w3-container w3-center">
+<div class="w3-container w3-center w3-padding-24">
+    <i class="material-icons w3-text-theme">date_range</i>
     <h3>Schemagenerator</h3>
 
     <form method='POST' action='/schema'>
-    <p>Ange vilket år du vill generera schema för:</p>
-    <p>År:<input name='year' type='TEXT' width='200' required></p>        
-    <p><input value='Visa schema' type='SUBMIT'>
-        <input value='Skapa pdf' type='submit' formaction="/pdf">
-    </p>
+        <p>Skapa schema för år:</p>
+        <p><input name='year' type='TEXT' width='200' required></p>        
+        <p><input value='Visa schema' type='SUBMIT'>
+        <input value='Skapa pdf' type='submit' formaction="/pdf"></p>
     </form>
 </div>
-<div class="w3-container w3-center">
+
+<hr class="w3-theme-d4" style="height: 3px; width: 100px; margin:auto">
+
+<div class="w3-container w3-center w3-padding-24">
+    <i class="material-icons w3-text-theme">money</i>
     <h3>Löneuträkning</h3>
 
     <form method="post" action="/loneutrakning">
