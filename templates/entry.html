@@ -2,33 +2,43 @@
 
 {% block body %}
 
-<div class="w3-container w3-center w3-padding-24">
-    <i class="material-icons w3-text-theme">date_range</i>
+<div class="w3-container w3-center w3-padding-large">
+    <i class="material-icons md-48 w3-text-theme">date_range</i>
     <h3>Schemagenerator</h3>
 
-    <form method='POST' action='/schema'>
-        <p>Skapa schema för år:</p>
-        <p><input name='year' type='TEXT' width='200' required></p>        
-        <p><input value='Visa schema' type='SUBMIT'>
-        <input value='Skapa pdf' type='submit' formaction="/pdf"></p>
+    <form class="w3-container" method='POST' action='/schema'>
+        <label>Skapa schema för år:</label>
+        <select class="w3-select w3-border" name="year">
+            {% for i in range(-2, 4) %}
+            <option value="{{ year + i }}"{% if year + i == year %} selected{% endif %}>{{ year + i }}</option>
+            {% endfor %}
+        </select>
+        <p><input class="w3-button w3-theme-d2 w3-hover-theme" value='Visa schema' type='SUBMIT'>
+        <input class="w3-button w3-theme-d2 w3-hover-theme" value='Skapa pdf' type='submit' formaction="/pdf"></p>
     </form>
 </div>
+<div class="w3-container w3-padding-large">
+<hr class="w3-theme-d4" style="height: 3px; width: 50%; margin:auto">
+</div>
+<div class="w3-container w3-center w3-padding-large">
+    <i class="material-icons md-48 w3-text-theme">money</i>
+    <h3>Löneprognos</h3>
 
-<hr class="w3-theme-d4" style="height: 3px; width: 100px; margin:auto">
-
-<div class="w3-container w3-center w3-padding-24">
-    <i class="material-icons w3-text-theme">money</i>
-    <h3>Löneuträkning</h3>
-
-    <form method="post" action="/loneutrakning">
-        <p>Grundlön (inkl. tillägg):<input type="text" name="salary" width="150"></p>
-        <p>År:<input name='year' type='TEXT' width='200' required></p>
-        <input type="radio" name="shift" value="1" checked>Skift 1
-        <input type="radio" name="shift" value="2">Skift 2
-        <input type="radio" name="shift" value="3">Skift 3
-        <input type="radio" name="shift" value="4">Skift 4
-        <input type="radio" name="shift" value="5">Skift 5
-        <p><input value='Räkna ut lön' type='submit'></p>
+    <form class="w3-container" method="post" action="/loneutrakning">
+        <div class="w3-row-padding w3-center">
+            <div class="w3-half">
+                <input class="w3-input w3-border" type="text" name="salary" placeholder="Grundlön inkl. tillägg" required>
+            </div>
+            <div class="w3-half">
+                <input class="w3-input w3-border" type="text" name="year" placeholder="År" required>
+            </div>
+        </div>
+        <input class="w3-radio" type="radio" name="shift" value="1" checked><label>Skift 1</label>
+        <input class="w3-radio" type="radio" name="shift" value="2">Skift 2
+        <input class="w3-radio" type="radio" name="shift" value="3">Skift 3
+        <input class="w3-radio" type="radio" name="shift" value="4">Skift 4
+        <input class="w3-radio" type="radio" name="shift" value="5">Skift 5
+        <p><input class="w3-button w3-theme-d2 w3-hover-theme" value='Räkna ut lön' type='submit'></p>
     </form>
 </div>
 
