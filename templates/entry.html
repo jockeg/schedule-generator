@@ -13,8 +13,8 @@
             <option value="{{ year + i }}"{% if year + i == year %} selected{% endif %}>{{ year + i }}</option>
             {% endfor %}
         </select>
-        <p><input class="w3-button w3-theme-d2 w3-hover-theme" value='Visa schema' type='SUBMIT'>
-        <input class="w3-button w3-theme-d2 w3-hover-theme" value='Skapa pdf' type='submit' formaction="/pdf"></p>
+        <p><input class="w3-button w3-theme-l1 w3-hover-theme" value='Visa schema' type='SUBMIT'>
+        <input class="w3-button w3-theme-l1 w3-hover-theme" value='Skapa pdf' type='submit' formaction="/pdf"></p>
     </form>
 </div>
 <div class="w3-container w3-padding-large">
@@ -33,18 +33,36 @@
                 <input class="w3-input w3-border w3-center" type="text" name="year" placeholder="År" required>
             </div>
         </div>
-        <div class="w3-row w3-center">
-            <div>
-                <label>Skift 1</label>
-                <input class="w3-radio" type="radio" name="shift" value="1" checked>
+        <div class="w3-container">
+            <div class="w3-container w3-show-inline-block choose-shift">
+                <input type="radio" id="1" name="shift" value="1" checked />
+                <label for="1">Skift 1</label>
+                <input type="radio" id="2" name="shift" value="2" />
+                <label for="2">Skift 2</label>
+                <input type="radio" id="3" name="shift" value="3" />
+                <label for="3">Skift 3</label>
+                <input type="radio" id="4" name="shift" value="4" />
+                <label for="4">Skift 4</label>
+                <input type="radio" id="5" name="shift" value="5" />
+                <label for="5">Skift 5</label>
             </div>
-            <div>
-                <input class="w3-radio" type="radio" name="shift" value="2">Skift 2
-            </div>
-                <input class="w3-radio" type="radio" name="shift" value="3">Skift 3
-                <input class="w3-radio" type="radio" name="shift" value="4">Skift 4
-                <input class="w3-radio" type="radio" name="shift" value="5">Skift 5
-                <p><input class="w3-button w3-theme-d2 w3-hover-theme" value='Räkna ut lön' type='submit'></p>
+            <!--<table class="w3-table">
+                <tr>
+                    <td class="w3-center" style="padding-left: 8px;"><label>Skift 1</label></td>
+                    <td class="w3-center"><Label>Skift 2</Label></td>
+                    <td class="w3-center"><label>Skift 3</label></td>
+                    <td class="w3-center"><label>Skift 4</label></td>
+                    <td class="w3-center"><label>Skift 5</label></td>
+                </tr>
+                <tr>
+                    <td class="w3-center" style="padding-left: 8px;"><input class="w3-radio" type="radio" name="shift" value="1"></td>
+                    <td class="w3-center"><input class="w3-radio" type="radio" name="shift" value="2"></td>
+                    <td class="w3-center"><input class="w3-radio" type="radio" name="shift" value="3"></td>
+                    <td class="w3-center"><input class="w3-radio" type="radio" name="shift" value="4"></td>
+                    <td class="w3-center"><input class="w3-radio" type="radio" name="shift" value="5"></td>
+                </tr>
+            </table>-->
+                <p><input class="w3-button w3-theme-l1 w3-hover-theme" value='Räkna ut lön' type='submit'></p>
         </div>
     </form>
 </div>
