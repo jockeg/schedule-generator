@@ -10,19 +10,21 @@
         <link rel="stylesheet" href="/static/style.css">
         <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://kit.fontawesome.com/3ca9482f51.js" crossorigin="anonymous"></script>
     </head>
-    <body class="w3-content w3-card-4">
-        <div id="gradient" class="w3-container">
+    <body>
+        <div class="w3-container w3-theme w3-padding-32 w3-center">
         <h1 class="w3-jumbo">JG</h1>
         </div>
-        <div class="w3-container" style="background-color: #ffffff;">
+        <div class="w3-container w3-padding-32 w3-stretch">
 
         {% block body %}
 
         {% endblock %}
         
         </div>
-        <div class="w3-container w3-theme-dark w3-small"><p>&copy; 2020 Joakim Gustafsson <a href="mailto:jocke.gustafsson@gmail.com"><i class="material-icons w3-small">email</i></a></p></div>
+        <div class="w3-container w3-theme-dark w3-padding-16">
+            <p><span class="w3-small">Copyright</span> <i class="far fa-copyright fa-sm"></i> <span class="w3-small">2020 Joakim Gustafsson</span> <span class="w3-right"><a href="mailto:jocke.gustafsson@gmail.com"><i class="far fa-envelope"></i></a></span></p>
+        </div>
     </body>
 </html>
