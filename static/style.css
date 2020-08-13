@@ -29,3 +29,4 @@ html, body {font-family: Lato, Arial, Helvetica, sans-serif;}
 
 .choose-shift input[type="radio"],.choose-shift input[type="radio"]:checked {display: none;}
 .choose-shift input[type="radio"],.choose-shift input[type="radio"]:checked + label {color: #fff; background-color: #203556 !important;}
+.choose-shift label {margin-bottom: 5px;}
