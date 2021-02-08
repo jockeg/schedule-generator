@@ -8,7 +8,10 @@
     <h3>{{ the_title }}</h3>
     <p><b>Grundlön: </b>{{ salary }}</p>
     <p>Skift {{ shift }}</p>
-    <p>{{ total_pay }}</p>
+</div>
+<div class="w3-container w3-center w3-padding-24">
+    <p>{{ months.get(month) }}</p>
+    <p>Brutto: {{ round(month_pay, 2) }}</p>
 </div>
 
 {% endblock %}

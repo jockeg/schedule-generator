@@ -5,6 +5,7 @@ from dateutil.easter import easter
 from dateutil.relativedelta import relativedelta
 
 
+# Schedule
 shifts = ('Fi', 'F', 'E', 'E', 'N', 'Na', 'E',
           'L', 'L', 'L', 'L', 'F', 'D', 'F',
           'E', 'E', 'N', 'N', 'L', 'L', 'L',
@@ -12,6 +13,7 @@ shifts = ('Fi', 'F', 'E', 'E', 'N', 'Na', 'E',
           'N', 'N', 'L', 'L', 'L', 'L', 'L')
 
 
+# Holidays with abbreviations
 helgdagar = {'Nyårsdagen': 'ND', 'Trettondedag jul': 'TD', 'Långfredagen': 'LF',
              'Påskafton': 'PA', 'Påskdagen': 'PD', 'Annandag påsk': 'AP',
              'Första maj': '1M', 'Kristi himmelsfärdsdag': 'KH',

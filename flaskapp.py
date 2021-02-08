@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, make_response
 from datetime import date
 from babel.dates import format_date
 from schedule_generator import shift_day, year_dates, week_len, SweHolidays, helgdagar
-from pay_calculator import pay, schedule
+from pay_calculator import pay, schedule, schedule_month
 import pdfkit
 
 holidays_se = SweHolidays(include_sundays=False)
@@ -11,6 +11,20 @@ vacationgrp1 = [25, 26, 27, 28]
 freegrp1 = [29]
 vacationgrp2 = [30, 31, 32, 33]
 freegrp2 = [34]
+
+# Months
+months = {1: 'Januari',
+          2: 'Februari',
+          3: 'Mars',
+          4: 'April',
+          5: 'Maj',
+          6: 'Juni',
+          7: 'Juli',
+          8: 'Augusti',
+          9: 'September',
+          10: 'Oktober',
+          11: 'November',
+          12: 'December'}
 
 
 app = Flask(__name__)
@@ -94,8 +108,16 @@ def calculate_pay():
     shift = request.form['shift']
     dates = schedule(int(year), int(shift))
     total_pay = 12 * salary
+    month_pay = salary
+    month = int(request.form['month'])
+    dates_month = schedule_month(int(year), int(month), int(shift))
+    
     for date, workshift in dates.items():
         total_pay += pay(salary, date, workshift)
+    
+    for date, workshift in dates_month.items():
+        month_pay += pay(salary, date, workshift)
+
     return render_template('calc.html',
                            the_title='Lön ' + year,
                            salary=salary,
@@ -103,7 +125,11 @@ def calculate_pay():
                            shift=shift,
                            dates=dates,
                            pay=pay,
-                           total_pay=total_pay,)
+                           total_pay=total_pay,
+                           month_pay=month_pay,
+                           month=month,
+                           months=months,
+                           round=round,)
 
 
 if __name__ == '__main__':

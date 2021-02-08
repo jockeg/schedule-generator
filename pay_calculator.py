@@ -68,7 +68,7 @@ def pay(base_pay, date, shift_day):
 
 
 def shift_day(date, shift):
-    """Returns the string corresponding to date from tuple shifts"""
+    """Return the string corresponding to date from tuple shifts"""
 
     offset = 0
     if shift == 1:
@@ -88,19 +88,35 @@ def shift_day(date, shift):
 
 
 def year_dates(year):
-    """Returns a list of datetime objects for the year"""
+    """Return a list of datetime objects for the year"""
     start_date = dt.date(year, 1, 1)
     end_date = dt.date(year + 1, 1, 1)
     return [start_date + dt.timedelta(i)
             for i in range(int((end_date - start_date).days))]
 
 
+def month_dates(year, month):
+    """Return a list of datetime objects for the month -1 in year"""
+    if month == 1:
+        start_date = dt.date(year - 1, 12, 1)
+    else:
+        start_date = dt.date(year, month - 1, 1)
+    end_date = dt.date(year, month, 1)
+    return [start_date + dt.timedelta(i)
+            for i in range(int((end_date - start_date).days))]
+
+
 def schedule(year, shift):
+    """Return a dict with date objects as keys and shift worked as values"""
     return {date: shift_day(date, shift) for date in year_dates(year)}
 
 
+def schedule_month(year, month, shift):
+    return {date: shift_day(date, shift) for date in month_dates(year, month)}
+
+
 def work_schedule(year, shift):
-    """Returns a list of tuples with
+    """Return a list of tuples with
         week number, day of month, weekday, and shift worked"""
     return [[single_date.strftime('%V'),
              single_date.strftime('%d'),
