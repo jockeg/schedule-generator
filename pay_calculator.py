@@ -64,7 +64,7 @@ def pay(base_pay, date, shift_day):
         if date in holidays_se:
             return ((base_pay / 270) * 12.25) + ((base_pay / 110) * 12.25)
         else:
-            return (base_pay / 270) * 12.25
+            return 4.75 * 27.44 + 12.25 * 76.80 + 7.5 * 34.91
 
 
 def shift_day(date, shift):
