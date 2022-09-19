@@ -104,7 +104,7 @@ def generatepdf():
 @app.route('/loneutrakning', methods=['POST'])
 def calculate_pay():
     year = request.form['year']
-    salary = int(request.form['salary'])
+    salary = float(request.form['salary'])
     shift = request.form['shift']
     dates = schedule(int(year), int(shift))
     total_pay = 12 * salary
