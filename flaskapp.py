@@ -4,6 +4,7 @@ from babel.dates import format_date
 from schedule_generator import shift_day, year_dates, week_len, SweHolidays, helgdagar
 from pay_calculator import pay, schedule, schedule_month
 import pdfkit
+import pandas as pd
 
 holidays_se = SweHolidays(include_sundays=False)
 
@@ -104,22 +105,32 @@ def generatepdf():
 @app.route('/loneutrakning', methods=['POST'])
 def calculate_pay():
     year = request.form['year']
-    salary = float(request.form['salary'])
+    salary = float(request.form['salary'].replace(',', '.'))
     shift = request.form['shift']
     dates = schedule(int(year), int(shift))
     total_pay = 12 * salary
     month_pay = salary
     month = int(request.form['month'])
     dates_month = schedule_month(int(year), int(month), int(shift))
+    skattetabell = int(request.form['skattetabell'])
     
+    xl_file = 'https://www.skatteverket.se/download/18.339cd9fe17d1714c0771bae/1638974402658/M%C3%A5nadsl%C3%B6n%202022.xlsx'
+
     for date, workshift in dates.items():
         total_pay += pay(salary, date, workshift)
     
     for date, workshift in dates_month.items():
         month_pay += pay(salary, date, workshift)
 
+    df = pd.read_excel(xl_file)
+    df2 = df.loc[:, ['Tabellnr', 'Inkomst t.o.m.', 'Kolumn 1']]
+    df3 = df2.set_index('Tabellnr')
+    df4 = df3.loc[skattetabell]
+    df5 = df4.set_index('Kolumn 1')
+    result = df5['Inkomst t.o.m.'].sub(month_pay).abs().idxmin()
+    
     return render_template('calc.html',
-                           the_title='Lön ' + year,
+                           the_title='Lön ' + months.get(month) + ' ' + year,
                            salary=salary,
                            year=year,
                            shift=shift,
@@ -129,7 +140,8 @@ def calculate_pay():
                            month_pay=month_pay,
                            month=month,
                            months=months,
-                           round=round,)
+                           round=round,
+                           result=result)
 
 
 if __name__ == '__main__':

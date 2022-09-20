@@ -6,12 +6,11 @@
 
 <div class="w3-container w3-center w3-padding-24">
     <h3>{{ the_title }}</h3>
-    <p><b>Grundlön: </b>{{ salary }}</p>
-    <p>Skift {{ shift }}</p>
-</div>
-<div class="w3-container w3-center w3-padding-24">
-    <p>{{ months.get(month) }}</p>
-    <p>Brutto: {{ round(month_pay, 2) }}</p>
+    <p><b>Skift:</b> {{ shift }}</p>
+    <p><b>Grundlön:</b> {{ salary }} kr</p>
+    <p><b>Brutto:</b> {{ round(month_pay, 2) }} kr</p>
+    <p><b>Skatt:</b> {{ result }} kr - {{ round(result / month_pay * 100, 2) }}%</p>
+    <p><b>Netto:</b> {{ round(month_pay - result, 2) }} kr</p>
 </div>
 
 {% endblock %}

@@ -123,10 +123,10 @@ small_holidays_se = SmallHolidays()
 
 
 def pay(base_pay, date, shift_day):
-    ob1 = 27.44
-    ob2 = 34.91
-    ob3 = 76.80
-    ob4 = 170.82
+    ob1 = 27.44 # 16:30-22:30
+    ob2 = 34.91 # 22:30-06:30
+    ob3 = 76.80 # Weekends/small holidays
+    ob4 = 170.82 # Big holidays
 
     if shift_day == 'L':
         return 0
@@ -165,8 +165,12 @@ def pay(base_pay, date, shift_day):
     elif shift_day == 'N':
         if date + dt.timedelta(days=1) in holidays_se:
             return 0.75 * ob1 + 7.5 * ob2 + 8.25 * ob4
+        elif date == dt.date(date.year, 1, 1):
+            return 0.75 * ob1 + 7.5 * ob2 + 8.25 * ob4
         elif date + dt.timedelta(days=1) in small_holidays_se:
             return 0.75 * ob1 + 7.5 * ob2 + 7.5 * ob3
+        elif date in small_holidays_se:
+            return 0.75 * ob1 + 7.5 * ob2 + 0.75 * ob3
         elif date.weekday() == 4:
             return 0.75 * ob1 + 7.5 * ob2 + 7.5 * ob3
         elif date.weekday() == 6:

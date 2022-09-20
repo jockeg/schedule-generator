@@ -5,3 +5,4 @@ holidays
 python-dateutil
 pdfkit
 gunicorn
+pandas
