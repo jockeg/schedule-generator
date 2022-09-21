@@ -6,3 +6,4 @@ python-dateutil
 pdfkit
 gunicorn
 pandas
+openpyxl
