@@ -8,10 +8,12 @@ import pandas as pd
 
 holidays_se = SweHolidays(include_sundays=False)
 
-vacationgrp1 = [25, 26, 27, 28]
-freegrp1 = [29]
-vacationgrp2 = [30, 31, 32, 33]
-freegrp2 = [34]
+vacation_weeks = [[25, 26, 27, 28, 29], [30, 31, 32, 33, 34]]
+
+vacationgrp1 = vacation_weeks[0][0:4]
+freegrp1 = vacation_weeks[0][4:5]
+vacationgrp2 = vacation_weeks[1][0:4]
+freegrp2 = vacation_weeks[1][4:5]
 
 # Months
 months = {1: 'Januari',
@@ -113,14 +115,22 @@ def calculate_pay():
     month = int(request.form['month'])
     dates_month = schedule_month(int(year), int(month), int(shift))
     skattetabell = int(request.form['skattetabell'])
+    vacation = request.form['vacation']
     
     xl_file = 'https://www.skatteverket.se/download/18.339cd9fe17d1714c0771bae/1638974402658/M%C3%A5nadsl%C3%B6n%202022.xlsx'
-
-    for date, workshift in dates.items():
-        total_pay += pay(salary, date, workshift)
     
-    for date, workshift in dates_month.items():
-        month_pay += pay(salary, date, workshift)
+    if vacation == '1':
+        for date, workshift in dates.items():
+            total_pay += pay(salary, date, workshift, vacation_weeks[0])
+    
+        for date, workshift in dates_month.items():
+            month_pay += pay(salary, date, workshift, vacation_weeks[0])
+    elif vacation == '2':
+        for date, workshift in dates.items():
+            total_pay += pay(salary, date, workshift, vacation_weeks[1])
+        
+        for date, workshift in dates_month.items():
+            month_pay += pay(salary, date, workshift, vacation_weeks[1])
 
     df = pd.read_excel(xl_file)
     df2 = df.loc[:, ['Tabellnr', 'Inkomst t.o.m.', 'Kolumn 1']]

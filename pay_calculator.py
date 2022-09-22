@@ -122,13 +122,15 @@ holidays_se = BigHolidays()
 small_holidays_se = SmallHolidays()
 
 
-def pay(base_pay, date, shift_day):
+def pay(base_pay, date, shift_day, vacation_weeks):
     ob1 = 27.44 # 16:30-22:30
     ob2 = 34.91 # 22:30-06:30
     ob3 = 76.80 # Weekends/small holidays
     ob4 = 170.82 # Big holidays
 
     if shift_day == 'L':
+        return 0
+    elif date.isocalendar().week in vacation_weeks:
         return 0
     elif shift_day == 'Fi':
         if date in holidays_se:

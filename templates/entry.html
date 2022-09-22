@@ -25,16 +25,44 @@
     <form class="w3-container" method="post" action="/loneutrakning">
         <div class="w3-row">
             <div class="w3-content" style="max-width: 200px;">
+                <label>Grundlön inkl. tillägg:</label><br>
                 <input class="w3-input w3-border w3-center" type="text" name="salary" placeholder="Grundlön inkl. tillägg" required>
             </div>
             <div class="w3-content" style="max-width: 200px;">
-                <input class="w3-input w3-border w3-center" type="text" name="year" placeholder="År" required>
+                <label>År:</label><br>
+                <select class="w3-select w3-border w3-center" style="max-width: 200px;" name="year">
+                    {% for i in range(-2, 4) %}
+                    <option value="{{ year + i }}"{% if year + i == year %} selected{% endif %}>{{ year + i }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="w3-content" style="max-width: 200px;">
-                <input class="w3-input w3-border w3-center" type="text" name="skattetabell" placeholder="Skattetabell" required>
+                <label>Skattetabell:</label><br>
+                <select class="w3-select w3-border w3-center" style="max-width: 200px;" name="skattetabell">
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    <option value="32">32</option>
+                    <option value="33">33</option>
+                    <option value="34">34</option>
+                    <option value="35">35</option>
+                    <option value="36">36</option>
+                    <option value="37">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                </select>
             </div>
         </div>
         <div class="w3-row">
+            <div class="w3-container choose-shift">
+                <p>
+                <input type="radio" id="early" name="vacation" value="1" checked>
+                <label class="w3-button w3-theme-l1 w3-hover-theme" for="early">Tidig semester</label>
+                <input type="radio" id="late" name="vacation" value="2">
+                <label class="w3-button w3-theme-l1 w3-hover-theme" for="late">Sen semester</label>
+                </p>
+            </div>
             <div class="w3-container choose-shift">
                 <p>
                 <input type="radio" id="1" name="shift" value="1" checked />
