@@ -1,6 +1,6 @@
 body {
     font-family:      Verdana, Geneva, Arial, sans-serif;
-    font-size:        medium;
+    font-size:        large;
     margin-top:       0%;
     margin-bottom:    0%;
     margin-left:      0%;
@@ -22,9 +22,9 @@ body {
   div {
     display:          inline-block;
     margin-top:       0mm;
-    margin-bottom:    5mm;
-    margin-right:     5mm;
-    margin-left:      5mm;
+    margin-bottom:    0mm;
+    margin-right:     0mm;
+    margin-left:      0mm;
     width:            auto;
   }
 
@@ -57,11 +57,11 @@ body {
   }
   
   th {
-  min-width:          6mm;
+  min-width:          7mm;
   }
 
   tr {
-  height:             5.5mm;
+  height:             6.4mm;
   }
   
   .holiday {
