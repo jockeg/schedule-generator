@@ -111,7 +111,8 @@ def calculate_pay():
     shift = request.form['shift']
     dates = schedule(int(year), int(shift))
     total_pay = 12 * salary
-    month_pay = salary
+    supplement = float(request.form['supplement']) * salary
+    month_pay = salary + supplement
     month = int(request.form['month'])
     dates_month = schedule_month(int(year), int(month), int(shift))
     skattetabell = int(request.form['skattetabell'])
@@ -151,7 +152,8 @@ def calculate_pay():
                            month=month,
                            months=months,
                            round=round,
-                           result=result)
+                           result=result,
+                           supplement=supplement,)
 
 
 if __name__ == '__main__':

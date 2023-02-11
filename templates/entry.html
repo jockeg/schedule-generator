@@ -25,8 +25,16 @@
     <form class="w3-container" method="post" action="/loneutrakning">
         <div class="w3-row">
             <div class="w3-content" style="max-width: 200px;">
-                <label>Grundlön inkl. tillägg:</label><br>
-                <input class="w3-input w3-border w3-center" type="text" name="salary" placeholder="Grundlön inkl. tillägg" required>
+                <label>Grundlön:</label><br>
+                <input class="w3-input w3-border w3-center" type="text" name="salary" placeholder="Grundlön" required>
+            </div>
+            <div class="w3-content" style="max-width: 200px;">
+                <label>Skiftformstillägg:</label><br>
+                <select class="w3-select w3-border w3-center" style="max-width: 200px;" name="supplement">
+                    <option value="0.1025">10,25% (5-skift + storhelg)</option>
+                    <option value="0.089">8,90% (5-skift u. storhelg)</option>
+                    <option value="0.0165">1,65% (3-skift)</option>
+                </select>
             </div>
             <div class="w3-content" style="max-width: 200px;">
                 <label>År:</label><br>
