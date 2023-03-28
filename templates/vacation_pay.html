@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+<div class="w3-container w3-center w3-padding-24">
+    <h3>{{ the_title }}</h3>
+    <p><b>Skift:</b> {{ shift }}</p>
+    <p><b>Brutto:</b> {{ round(month_pay, 2) }} kr</p>
+    <p><b>Skatt:</b> {{ result }} kr - {{ round(result / month_pay * 100, 2) }}%</p>
+    <p><b>Netto:</b> {{ round(month_pay - result, 2) }} kr</p>
+</div>
+
+{% endblock %}
