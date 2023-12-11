@@ -124,7 +124,7 @@ def pay(base_pay, date, shift_day, vacation_weeks):
     ob1 = 27.44 # 16:30-22:30
     ob2 = 34.91 # 22:30-06:30
     ob3 = 76.80 # Weekends/small holidays
-    ob4 = 170.82 # Big holidays
+    ob4 = 170.82 + base_pay * 0.007 # Big holidays
 
     if shift_day == 'L':
         return 0
