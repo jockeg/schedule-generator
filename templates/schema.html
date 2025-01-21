@@ -10,7 +10,7 @@
     {% for row in datum %}
     <div class="page-break">
     <table>
-        <tr><th colspan="6"><h3>{{ year }}</h3></th></tr>
+        <tr><td colspan="1"></td><th colspan="4"><h3>{{ year }}</h3></th><td colspan="1"><a href="https://jitsolutions.se"><img src="/static/logga_full_liggande-v7.png" alt="JIT Solutions" style="width: 100px;"></a></td></tr>
         <tr>
             {% for month in row %}
             <td class="border" style="vertical-align: top;">
@@ -59,7 +59,6 @@
                             {% endfor %}
                         </tr>
                     {% endfor %}
-                    
                 </table>
             </td>
             {% endfor %}
