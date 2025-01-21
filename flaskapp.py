@@ -84,7 +84,7 @@ def generatepdf():
                                freegrp2=freegrp2,)
 
     options = {
-        'enable-local-file-access': None,
+        'enable-local-file-access': True,
         'orientation': 'Landscape',
         'margin-bottom': '5mm',
         'margin-top': '5mm',
