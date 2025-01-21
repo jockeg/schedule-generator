@@ -44,6 +44,7 @@ def entry_page():
 def generate():
     year = request.form['year']
     dates = year_dates(int(year))
+    logo_path = "./static/logga_full_liggande-v7.png"
     return render_template('schema.html',
                            the_title='Schema ' + year,
                            year=year,
@@ -59,13 +60,15 @@ def generate():
                            vacationgrp1=vacationgrp1,
                            freegrp1=freegrp1,
                            vacationgrp2=vacationgrp2,
-                           freegrp2=freegrp2,)
+                           freegrp2=freegrp2,
+                           logo_path=logo_path,)
 
 
 @app.route('/pdf', methods=['POST'])
 def generatepdf():
     year = request.form['year']
     dates = year_dates(int(year))
+    logo_path = "/var/www/schedule-generator/static/logga_full_liggande-v7.png"
     rendered = render_template('schema.html',
                                the_title='Schema ' + year,
                                year=year,
@@ -81,10 +84,11 @@ def generatepdf():
                                vacationgrp1=vacationgrp1,
                                freegrp1=freegrp1,
                                vacationgrp2=vacationgrp2,
-                               freegrp2=freegrp2,)
+                               freegrp2=freegrp2,
+                               logo_path=logo_path,)
 
     options = {
-        'enable-local-file-access': True,
+        'enable-local-file-access': None,
         'orientation': 'Landscape',
         'margin-bottom': '5mm',
         'margin-top': '5mm',
@@ -92,8 +96,8 @@ def generatepdf():
         'margin-right': '5mm',
         }
     css = 'static/pdf.css'
-    config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')
-#    config = pdfkit.configuration(wkhtmltopdf='C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe')
+#    config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')
+    config = pdfkit.configuration(wkhtmltopdf='C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe')
 
     pdf = pdfkit.from_string(rendered, False, options=options, css=css,
                              configuration=config)
